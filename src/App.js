@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./styles/index.css";
+import React, { useState } from "react";
+import LoginForm from "./components/LoginForm";
+//Flexbox: adjust "gimme" button to be in the center of the page when form is inactive
 function App() {
+
+  //State for login modal
+  const [activeLogin, setActiveLogin] = useState(false);
+
+  const closeButtonHandler = () => {
+    setActiveLogin(!activeLogin);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button className={`${!activeLogin ? 'login' : 'login_inactive'}`} onClick={() => setActiveLogin(!activeLogin)}>
+        Give me Login Form
+      </button>
+
+      <LoginForm isActive={activeLogin} setIsActive={closeButtonHandler} />
     </div>
   );
 }
