@@ -14,16 +14,22 @@
   transition: all 0.5s ease;
   transform: scale(0);
 }
+/*Figure out how to center the form container*/
+.form_container {
+  min-width: 20rem;
+  max-width: 40rem;
+}
 
 .login_container {
+  transition: all 0.3s ease;
   & > h1 {
     text-transform: capitalize;
     padding-bottom: 15px;
     text-align: center;
   }
   .close_button {
-    &:hover{
-color: #ff7e33;
+    &:hover {
+      color: #ff7e33;
     }
     position: absolute;
     top: 1rem;
@@ -33,7 +39,6 @@ color: #ff7e33;
     cursor: pointer;
   }
 
-  transition: all 0.5s ease;
   transform: scale(1);
   backdrop-filter: blur(2px);
   background: rgba($color: #a3a3a3, $alpha: 0.5);
@@ -68,8 +73,8 @@ color: #ff7e33;
   background: transparent;
   border: 2px solid white;
   &:hover {
-      background-color: white;
-      border: 2px solid#ff7e33;
-      color: #ff7e33;
+    background-color: white;
+    border: 2px solid#ff7e33;
+    color: #ff7e33;
   }
 }

@@ -6,32 +6,9 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   background-size: cover;
   background-image: url("https://wallpaperaccess.com/full/38598.jpg");
-}
-
-.App .login_inactive {
-  opacity: 0;
-}
-.App .login {
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: fixed;
-  top: 50%;
-  right: 50%;
-  padding: 10px 20px;
-  background: transparent;
-  border: 2px solid white;
-  border-radius: 3px;
-}
-.App .login:hover {
-  background-color: white;
-  border: 2px solid #ff7e33;
-  color: #ff7e33;
 }
 
 ::placeholder {
@@ -60,8 +37,14 @@ input:focus {
   transform: scale(0);
 }
 
+/*Figure out how to center the form container*/
+.form_container {
+  min-width: 20rem;
+  max-width: 40rem;
+}
+
 .login_container {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
   transform: scale(1);
   backdrop-filter: blur(2px);
   background: rgba(163, 163, 163, 0.5);
@@ -115,6 +98,57 @@ input:focus {
   background-color: white;
   border: 2px solid #ff7e33;
   color: #ff7e33;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 25px 25px 15px;
+}
+
+.navbar_item {
+  display: inline;
+}
+
+.header_title {
+  margin-left: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+.header_title:hover {
+  cursor: pointer;
+  color: #ff7e33;
+}
+
+.login {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #ff7e33;
+  border: 2px solid white;
+  border-radius: 3px;
+}
+.login:hover {
+  background-color: white;
+  border: 2px solid #ff7e33;
+  color: #ff7e33;
+}
+
+.register {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #4133ff;
+  border: 2px solid white;
+  border-radius: 3px;
+}
+.register:hover {
+  background-color: white;
+  border: 2px solid #4133ff;
+  color: #4133ff;
 }
 
 /*# sourceMappingURL=index.css.map */

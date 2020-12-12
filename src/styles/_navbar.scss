@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 25px 25px 15px;
+}
+.navbar_item{
+  display: inline;
+}
+.header_title {
+  margin-left: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  &:hover {
+    cursor: pointer;
+    color: #ff7e33;
+  }
+}
+
+.login {
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #ff7e33;
+  border: 2px solid white;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: white;
+    border: 2px solid#ff7e33;
+    color: #ff7e33;
+  }
+}
+
+.register {
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 10px 20px;
+  background: #4133ff;
+  border: 2px solid white;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: white;
+    border: 2px solid#4133ff;
+    color: #4133ff;
+  }
+}

@@ -1,24 +1,36 @@
 import "./styles/index.css";
 import React, { useState } from "react";
 import LoginForm from "./components/LoginForm";
-//Flexbox: adjust "gimme" button to be in the center of the page when form is inactive
+import RegisterForm from "./components/RegisterForm";
+import Navbar from "./components/Navbar";
+//@TODO: Register button not summoning register modal
 function App() {
-
   //State for login modal
   const [activeLogin, setActiveLogin] = useState(false);
+  const [activeRegister, setActiveRegister] = useState(false);
 
-  const closeButtonHandler = () => {
+  //How to make universinal close button handler?
+  const loginCloseButtonHandler = () => {
     setActiveLogin(!activeLogin);
-  }
+  };
+  const registerCloseButtonHandler = () => {
+    setActiveRegister(!activeRegister);
+  };
   return (
     <div className="App">
-      <button className={`${!activeLogin ? 'login' : 'login_inactive'}`} onClick={() => setActiveLogin(!activeLogin)}>
-        Give me Login Form
-      </button>
-
-      <LoginForm isActive={activeLogin} setIsActive={closeButtonHandler} />
+      <Navbar
+        loginActive={activeLogin}
+        setLoginActive={setActiveLogin}
+        
+        registerActive={activeLogin}
+        setRegisterActive={setActiveLogin}
+      />
+      <LoginForm isActive={activeLogin} setIsActive={loginCloseButtonHandler} />
+      <RegisterForm
+        isActive={activeRegister}
+        setIsActive={registerCloseButtonHandler}
+      />
     </div>
   );
 }
-
 export default App;

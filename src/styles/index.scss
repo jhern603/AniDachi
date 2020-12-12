@@ -6,41 +6,18 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   background-size: cover;
   background-image: url("https://wallpaperaccess.com/full/38598.jpg");
 }
-.App {
-  .login_inactive {
-    opacity: 0;
-  }
-  .login {
-      transition: all 0.3s ease;
-
-    &:hover {
-      background-color: white;
-      border: 2px solid#ff7e33;
-      color: #ff7e33;
-    }
-    cursor: pointer;
-    position: fixed;
-    top: 50%;
-    right: 50%;
-    padding: 10px 20px;
-    background: transparent;
-    border: 2px solid white;
-    border-radius: 3px;
-  }
-}
 ::placeholder {
   color: rgba($color: white, $alpha: 0.6);
 }
+
 button:focus,
 input:focus {
   outline: none;
 }
 
-@import "./loginForm";
+@import "./formStyle";
+@import "./navbar";

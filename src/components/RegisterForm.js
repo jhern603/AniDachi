@@ -8,11 +8,11 @@ const formSchema = Yup.object().shape({
   password: Yup.string().required().min(8).max(12),
 });
 
-function LoginForm({ isActive, setIsActive }) {
+function RegisterForm({ isActive, setIsActive }) {
   return (
     <div className="form_container">
       <div className={`${isActive ? "login_container" : "inactive_container"}`}>
-        <h1>welcome to my sweet login form!</h1>
+        <h1>welcome to my sweet register form!</h1>
         <p className="close_button" onClick={setIsActive}>
           X
         </p>
@@ -36,8 +36,8 @@ function LoginForm({ isActive, setIsActive }) {
                   name={"password"}
                   placeholder={"Password..."}
                 />
-                <button className="login_button" type={"submit"}>
-                  Login
+                <button className="register_button" type={"submit"}>
+                  Register
                 </button>
               </form>
             );
@@ -48,4 +48,4 @@ function LoginForm({ isActive, setIsActive }) {
   );
 }
 
-export default LoginForm;
+export default RegisterForm;
