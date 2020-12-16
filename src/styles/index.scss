@@ -6,10 +6,19 @@
 }
 
 body {
-  min-height: 100vh;
-  background-size: cover;
+  background-color: black;
   background-image: url("https://wallpaperaccess.com/full/38598.jpg");
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 ::placeholder {
   color: rgba($color: white, $alpha: 0.6);
 }
@@ -18,6 +27,5 @@ button:focus,
 input:focus {
   outline: none;
 }
-
-@import "./formStyle";
 @import "./navbar";
+@import "./formStyle";

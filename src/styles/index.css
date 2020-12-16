@@ -6,9 +6,17 @@
 }
 
 body {
-  min-height: 100vh;
-  background-size: cover;
+  background-color: black;
   background-image: url("https://wallpaperaccess.com/full/38598.jpg");
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 ::placeholder {
@@ -20,90 +28,15 @@ input:focus {
   outline: none;
 }
 
-.transparent_text {
-  opacity: 0;
-}
-
-.error {
-  text-transform: capitalize;
-  color: red;
-  font-weight: bold;
-  opacity: 1;
-  margin-top: 2px;
-}
-
-.inactive_container {
-  transition: all 0.5s ease;
-  transform: scale(0);
-}
-
-/*Figure out how to center the form container*/
-.form_container {
-  min-width: 20rem;
-  max-width: 40rem;
-}
-
-.login_container {
-  transition: all 0.3s ease;
-  transform: scale(1);
-  backdrop-filter: blur(2px);
-  background: rgba(163, 163, 163, 0.5);
-  box-shadow: 3px 3px 6px #000000;
-  border-radius: 2%;
-  padding: 2rem 2.5rem 2rem 2.5rem;
-}
-.login_container > h1 {
-  text-transform: capitalize;
-  padding-bottom: 15px;
-  text-align: center;
-}
-.login_container .close_button {
-  position: absolute;
-  top: 1rem;
-  right: -10.5rem;
-  width: 200px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.login_container .close_button:hover {
-  color: #ff7e33;
-}
-
-.login_form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.login_form .email,
-.login_form .password {
-  background: none;
-  border: none;
-  border-bottom: 1.5px solid white;
-  padding: 5px 10rem 5px 5px;
-}
-.login_form .input_field {
-  margin-top: 4px;
-}
-
-.login_button {
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: all 0.3s ease;
-  padding: 10px 20px;
-  background: transparent;
-  border: 2px solid white;
-}
-.login_button:hover {
-  background-color: white;
-  border: 2px solid #ff7e33;
-  color: #ff7e33;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
   background: white;
   padding: 15px 25px 25px 15px;
 }
@@ -112,13 +45,26 @@ input:focus {
   display: inline;
 }
 
-.header_title {
-  margin-left: 25px;
+.navbar_links {
+  margin-right: 2rem;
+}
+
+.navbar_text {
+  display: inline;
+  margin-right: 1rem;
+  color: black;
+}
+.navbar_text:hover {
+  cursor: pointer;
+  color: #ff7e33;
+}
+
+.navbar_title {
   font-size: 24px;
   font-weight: bold;
   color: black;
 }
-.header_title:hover {
+.navbar_title:hover {
   cursor: pointer;
   color: #ff7e33;
 }
@@ -146,6 +92,95 @@ input:focus {
   border-radius: 3px;
 }
 .register:hover {
+  background-color: white;
+  border: 2px solid #4133ff;
+  color: #4133ff;
+}
+
+.transparent_text {
+  opacity: 0;
+}
+
+.error {
+  text-transform: capitalize;
+  color: red;
+  font-weight: bold;
+  opacity: 1;
+  margin-top: 2px;
+}
+
+.inactive_container {
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.form_container {
+  margin-top: 200px;
+  transition: all 0.3s ease;
+  opacity: 1;
+  backdrop-filter: blur(2px);
+  background: rgba(163, 163, 163, 0.5);
+  box-shadow: 3px 3px 6px #000000;
+  border-radius: 2%;
+  padding: 2rem 2.5rem 2rem 2.5rem;
+}
+.form_container .form_header {
+  text-transform: capitalize;
+  padding-bottom: 15px;
+  text-align: center;
+}
+.form_container .close_button {
+  position: absolute;
+  left: 22.5rem;
+  top: 1rem;
+  height: 0;
+  width: 200px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.form_container .close_button:hover {
+  color: #00ff40;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login_form .text_input {
+  background: none;
+  border: none;
+  border-bottom: 1.5px solid white;
+  padding: 5px 10rem 5px 5px;
+}
+.login_form .input_field {
+  margin-top: 4px;
+}
+
+.login_button {
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid white;
+}
+.login_button:hover {
+  background-color: white;
+  border: 2px solid #ff7e33;
+  color: #ff7e33;
+}
+
+.register_button {
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid white;
+}
+.register_button:hover {
   background-color: white;
   border: 2px solid #4133ff;
   color: #4133ff;

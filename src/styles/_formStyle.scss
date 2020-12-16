@@ -1,3 +1,10 @@
+$register_button_primary: #4133ff;
+$login_button_primary: #ff7e33;
+$login_container_background: rgba(
+  $color: #a3a3a3,
+  $alpha: 0.5,
+);
+$close_button: rgb(0, 255, 64);
 .transparent_text {
   opacity: 0;
 }
@@ -12,36 +19,33 @@
 
 .inactive_container {
   transition: all 0.5s ease;
-  transform: scale(0);
-}
-/*Figure out how to center the form container*/
-.form_container {
-  min-width: 20rem;
-  max-width: 40rem;
+  opacity: 0;
 }
 
-.login_container {
-  transition: all 0.3s ease;
-  & > h1 {
+.form_container {
+  margin-top: 200px;
+  .form_header {
     text-transform: capitalize;
     padding-bottom: 15px;
     text-align: center;
   }
   .close_button {
     &:hover {
-      color: #ff7e33;
+      color: $close_button;
     }
     position: absolute;
+    left: 22.5rem;
     top: 1rem;
-    right: -10.5rem;
+    height: 0;    
     width: 200px;
     transition: all 0.3s ease;
     cursor: pointer;
   }
 
-  transform: scale(1);
+  transition: all 0.3s ease;
+  opacity: 1;
   backdrop-filter: blur(2px);
-  background: rgba($color: #a3a3a3, $alpha: 0.5);
+  background: $login_container_background;
   box-shadow: 3px 3px 6px #000000;
   border-radius: 2%;
   padding: 2rem 2.5rem 2rem 2.5rem;
@@ -53,8 +57,7 @@
   justify-content: center;
   align-items: center;
 
-  .email,
-  .password {
+  .text_input {
     background: none;
     border: none;
     border-bottom: 1.5px solid white;
@@ -74,7 +77,21 @@
   border: 2px solid white;
   &:hover {
     background-color: white;
-    border: 2px solid#ff7e33;
-    color: #ff7e33;
+    border: 2px solid$login_button_primary;
+    color: $login_button_primary;
+  }
+}
+
+.register_button {
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid white;
+  &:hover {
+    background-color: white;
+    border: 2px solid$register_button_primary;
+    color: $register_button_primary;
   }
 }

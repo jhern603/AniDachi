@@ -4,15 +4,14 @@ import * as Yup from "yup";
 import TextInput from "./TextInput";
 
 const formSchema = Yup.object().shape({
-  email: Yup.string().email().required(),
+  email: Yup.string().email().required("Please Enter a Valid Email"),
   password: Yup.string().required().min(8).max(12),
 });
 
 function LoginForm({ isActive, setIsActive }) {
   return (
     <div className="form_container">
-      <div className={`${isActive ? "login_container" : "inactive_container"}`}>
-        <h1>welcome to my sweet login form!</h1>
+        <h1 className={"form_header"}>login now</h1>
         <p className="close_button" onClick={setIsActive}>
           X
         </p>
@@ -25,13 +24,13 @@ function LoginForm({ isActive, setIsActive }) {
             return (
               <form onSubmit={handleSubmit} className="login_form">
                 <TextInput
-                  className="email"
+                  className="text_input"
                   name={"email"}
                   placeholder={"Email..."}
                 />
 
                 <TextInput
-                  className="password"
+                  className="text_input"
                   type={"password"}
                   name={"password"}
                   placeholder={"Password..."}
@@ -43,7 +42,6 @@ function LoginForm({ isActive, setIsActive }) {
             );
           }}
         </Formik>
-      </div>
     </div>
   );
 }

@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import Navbar from "./components/Navbar";
-//@TODO: Register button not summoning register modal
+//TODO: center containers on page
+
 function App() {
   //State for login modal
   const [activeLogin, setActiveLogin] = useState(false);
@@ -16,20 +17,33 @@ function App() {
   const registerCloseButtonHandler = () => {
     setActiveRegister(!activeRegister);
   };
+
   return (
     <div className="App">
+      
       <Navbar
         loginActive={activeLogin}
         setLoginActive={setActiveLogin}
-        
-        registerActive={activeLogin}
-        setRegisterActive={setActiveLogin}
+        registerActive={activeRegister}
+        setRegisterActive={setActiveRegister}
       />
-      <LoginForm isActive={activeLogin} setIsActive={loginCloseButtonHandler} />
-      <RegisterForm
-        isActive={activeRegister}
-        setIsActive={registerCloseButtonHandler}
-      />
+      
+      {activeLogin ? (
+        <LoginForm
+          isActive={activeLogin}
+          setIsActive={loginCloseButtonHandler}
+        />
+      ) : (
+        ""
+      )}
+      {activeRegister ? (
+        <RegisterForm
+          isActive={activeRegister}
+          setIsActive={registerCloseButtonHandler}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
