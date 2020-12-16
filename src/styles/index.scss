@@ -1,7 +1,16 @@
+$register_button_primary: #4133ff;
+$login_button_primary: #ff7e33;
+$login_container_background: rgba(
+  $color: #a3a3a3,
+  $alpha: 0.5,
+);
+$close_button: rgb(0, 255, 64);
+$primary_color: white;
+
 * {
+  
   margin: 0;
   padding: 0;
-  color: white;
   font-family: Helvetica;
 }
 
@@ -29,3 +38,4 @@ input:focus {
 }
 @import "./navbar";
 @import "./formStyle";
+@import "./page";

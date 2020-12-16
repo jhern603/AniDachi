@@ -6,7 +6,6 @@
   top: 0;
 
   position: absolute;
-  z-index: 1;
   width: 100%;
 
   background: white;
@@ -20,6 +19,8 @@
 }
 
 .navbar_text {
+  text-decoration: none;
+
   display: inline;
   margin-right: 1rem;
   color: black;
@@ -30,6 +31,7 @@
 }
 
 .navbar_title {
+  text-decoration: none;
   font-size: 24px;
   font-weight: bold;
   color: black;
@@ -46,6 +48,7 @@
   background: #ff7e33;
   border: 2px solid white;
   border-radius: 3px;
+  color: white;
 
   &:hover {
     background-color: white;
@@ -61,6 +64,7 @@
   background: #4133ff;
   border: 2px solid white;
   border-radius: 3px;
+  color: white;
 
   &:hover {
     background-color: white;

@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import Navbar from "./components/Navbar";
-//TODO: center containers on page
+
 
 function App() {
-  //State for login modal
+  //Props
   const [activeLogin, setActiveLogin] = useState(false);
   const [activeRegister, setActiveRegister] = useState(false);
 
-  //How to make universinal close button handler?
+  //Event handlers
   const loginCloseButtonHandler = () => {
     setActiveLogin(!activeLogin);
   };
@@ -20,14 +20,13 @@ function App() {
 
   return (
     <div className="App">
-      
       <Navbar
         loginActive={activeLogin}
         setLoginActive={setActiveLogin}
         registerActive={activeRegister}
         setRegisterActive={setActiveRegister}
       />
-      
+
       {activeLogin ? (
         <LoginForm
           isActive={activeLogin}
