@@ -2,10 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  left: 0;
-  top: 0;
 
-  position: absolute;
   width: 100%;
 
   background: white;
@@ -14,15 +11,12 @@
 .navbar_item {
   display: inline;
 }
-.navbar_links {
-  margin-right: 2rem;
-}
 
 .navbar_text {
   text-decoration: none;
 
   display: inline;
-  margin-right: 1rem;
+  margin-right: 15px;
   color: black;
   &:hover {
     cursor: pointer;

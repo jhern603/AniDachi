@@ -1,14 +1,16 @@
 import React from "react";
+import { LoginForm } from "../components/Forms";
 import Navbar from "../components/Navbar";
 
-const About = () => {
+const Login = () => {
+
   return (
     <div className="">
       <Navbar />
       <div className="page">
-        <h1>About</h1>
+        <LoginForm />
       </div>
     </div>
   );
 };
-export default About;
+export default Login;

@@ -1,47 +1,31 @@
 import "./styles/index.css";
-import React, { useState } from "react";
-import { RegisterForm, LoginForm } from "./components/Forms";
-import Navbar from "./components/Navbar";
-
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import About from "./pages/About";
+import Index from "./pages/Index";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
 function App() {
-  //Props
-  const [activeLogin, setActiveLogin] = useState(false);
-  const [activeRegister, setActiveRegister] = useState(false);
-
-  //Event handlers
-  const loginCloseButtonHandler = () => {
-    setActiveLogin(!activeLogin);
-  };
-  const registerCloseButtonHandler = () => {
-    setActiveRegister(!activeRegister);
-  };
-
   return (
-    <div className="App">
-      <Navbar
-        loginActive={activeLogin}
-        setLoginActive={setActiveLogin}
-        registerActive={activeRegister}
-        setRegisterActive={setActiveRegister}
-      />
+    <div>
+      <Router>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
 
-      {activeLogin ? (
-        <LoginForm
-          isLoginActive={activeLogin}
-          setLoginActive={loginCloseButtonHandler}
-        />
-      ) : (
-        ""
-      )}
-      {activeRegister ? (
-        <RegisterForm
-          isRegisterActive={activeRegister}
-          setRegisterActive={registerCloseButtonHandler}
-        />
-      ) : (
-        ""
-      )}
+          <Route path="/login">
+            <Login />
+          </Route>
+
+          <Route path="/contact">
+            <Contact />
+          </Route>
+
+          <Route exact path="/">
+            <Index />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

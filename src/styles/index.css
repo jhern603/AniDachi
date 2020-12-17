@@ -4,17 +4,16 @@
   font-family: Helvetica;
 }
 
+.blank {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
 body {
   background-color: black;
   background-image: url("https://wallpaperaccess.com/full/38598.jpg");
   background-repeat: no-repeat;
-}
-
-.App {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 }
 
 ::placeholder {
@@ -30,9 +29,6 @@ input:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  left: 0;
-  top: 0;
-  position: absolute;
   width: 100%;
   background: white;
   padding: 15px 25px 25px 15px;
@@ -42,14 +38,10 @@ input:focus {
   display: inline;
 }
 
-.navbar_links {
-  margin-right: 2rem;
-}
-
 .navbar_text {
   text-decoration: none;
   display: inline;
-  margin-right: 1rem;
+  margin-right: 15px;
   color: black;
 }
 .navbar_text:hover {
@@ -192,8 +184,11 @@ input:focus {
 }
 
 .page {
-  position: absolute;
-  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=index.css.map */

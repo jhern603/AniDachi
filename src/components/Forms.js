@@ -1,7 +1,7 @@
-import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import TextInput, { TextArea } from "./TextInput.js";
+
 
 const formSchema = Yup.object().shape({
   title: Yup.string().email().required(),
@@ -62,7 +62,7 @@ const ContactForm = () => {
   );
 };
 
-const RegisterForm = ({ isRegisterActive, setRegisterActive }) => {
+const RegisterForm = () => {
   return (
     <div className="form_container">
       <h1 className={"form_header"}>register now</h1>
@@ -81,7 +81,7 @@ const RegisterForm = ({ isRegisterActive, setRegisterActive }) => {
         {({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit} className="user_form">
-              <p className="close_button" onClick={setRegisterActive}>
+              <p className="close_button">
                 X
               </p>
 
@@ -123,13 +123,11 @@ const RegisterForm = ({ isRegisterActive, setRegisterActive }) => {
   );
 };
 
-const LoginForm = ({ isLoginActive, setLoginActive}) => {
+const LoginForm = () => {
   return (
     <div className="form_container">
       <h1 className={"form_header"}>login now</h1>
-      <p className="close_button" onClick={setLoginActive}>
-        X
-      </p>
+
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={formSchema}
@@ -160,5 +158,11 @@ const LoginForm = ({ isLoginActive, setLoginActive}) => {
     </div>
   );
 };
-export default ContactForm;
+
+const blank = () => {
+  return <div className="blank" >
+  </div>;
+};
+
+export default blank;
 export { ContactForm, LoginForm, RegisterForm };
