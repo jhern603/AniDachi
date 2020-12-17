@@ -8,7 +8,6 @@ body {
   background-color: black;
   background-image: url("https://wallpaperaccess.com/full/38598.jpg");
   background-repeat: no-repeat;
-  overflow: hidden;
 }
 
 .App {
@@ -145,19 +144,20 @@ input:focus {
   color: #00ff40;
 }
 
-.login_form {
+.user_form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.login_form .text_input {
+.user_form .text_input {
   background: none;
   border: none;
   border-bottom: 1.5px solid white;
   padding: 5px 10rem 5px 5px;
+  flex-grow: 1;
 }
-.login_form .input_field {
+.user_form .input_field {
   margin-top: 4px;
 }
 

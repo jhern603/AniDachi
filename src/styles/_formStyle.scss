@@ -19,6 +19,14 @@
   margin-top: 200px;
   color: $primary_color;
 
+  transition: all 0.3s ease;
+  opacity: 1;
+  backdrop-filter: blur(2px);
+  background: $login_container_background;
+  box-shadow: 3px 3px 6px #000000;
+  border-radius: 2%;
+  padding: 2rem 2.5rem 2rem 2.5rem;
+
   .form_header {
     text-transform: capitalize;
     padding-bottom: 15px;
@@ -36,17 +44,9 @@
     transition: all 0.3s ease;
     cursor: pointer;
   }
-
-  transition: all 0.3s ease;
-  opacity: 1;
-  backdrop-filter: blur(2px);
-  background: $login_container_background;
-  box-shadow: 3px 3px 6px #000000;
-  border-radius: 2%;
-  padding: 2rem 2.5rem 2rem 2.5rem;
 }
 
-.login_form {
+.user_form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,12 +57,14 @@
     border: none;
     border-bottom: 1.5px solid $primary_color;
     padding: 5px 10rem 5px 5px;
+    flex-grow: 1;
   }
 
   .input_field {
     margin-top: 4px;
   }
 }
+
 .login_button {
   cursor: pointer;
   margin-top: 1rem;

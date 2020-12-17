@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from "../pages/About.js";
 import Index from "../pages/Index.js";
+import Contact from "./Forms.js";
 
 const Navbar = ({
   loginActive,
@@ -12,13 +13,19 @@ const Navbar = ({
   return (
     <header className="navbar">
       <Router>
-          <Link to="/" className="navbar_title">
-            Jose Hernandez
-          </Link>
+        <Link to="/" className="navbar_title">
+          Jose Hernandez
+        </Link>
         <ul className="navbar_links">
           <li className="navbar_item">
             <Link to="/about" className="navbar_text">
               About
+            </Link>
+          </li>
+
+          <li className="navbar_item">
+            <Link to="/contact" className="navbar_text">
+              Contact
             </Link>
           </li>
 
@@ -49,6 +56,9 @@ const Navbar = ({
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
           </Route>
 
           <Route exact path="/">

@@ -1,7 +1,6 @@
 import "./styles/index.css";
 import React, { useState } from "react";
-import LoginForm from "./components/LoginForm";
-import RegisterForm from "./components/RegisterForm";
+import { RegisterForm, LoginForm } from "./components/Forms";
 import Navbar from "./components/Navbar";
 
 
@@ -29,16 +28,16 @@ function App() {
 
       {activeLogin ? (
         <LoginForm
-          isActive={activeLogin}
-          setIsActive={loginCloseButtonHandler}
+          isLoginActive={activeLogin}
+          setLoginActive={loginCloseButtonHandler}
         />
       ) : (
         ""
       )}
       {activeRegister ? (
         <RegisterForm
-          isActive={activeRegister}
-          setIsActive={registerCloseButtonHandler}
+          isRegisterActive={activeRegister}
+          setRegisterActive={registerCloseButtonHandler}
         />
       ) : (
         ""
