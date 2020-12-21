@@ -4,10 +4,13 @@ import About from "./pages/About";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Navbar from "./components/Navbar";
 function App() {
   return (
     <div>
       <Router>
+        <Navbar />
         <Switch>
           <Route path="/about">
             <About />
@@ -19,6 +22,10 @@ function App() {
 
           <Route path="/contact">
             <Contact />
+          </Route>
+
+          <Route path="/register">
+            <Register />
           </Route>
 
           <Route exact path="/">

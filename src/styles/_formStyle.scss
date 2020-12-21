@@ -45,7 +45,6 @@
     cursor: pointer;
   }
 }
-
 .user_form {
   display: flex;
   flex-direction: column;
@@ -73,8 +72,10 @@
   background: transparent;
   border: 2px solid $primary_color;
   color: $primary_color;
+  text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $primary_color;
     border: 2px solid$login_button_primary;
     color: $login_button_primary;
@@ -89,10 +90,78 @@
   background: transparent;
   border: 2px solid $primary_color;
   color: $primary_color;
-
-  &:hover {
+  text-decoration: none;
+  &:hover,
+  &:focus {
     background-color: $primary_color;
     border: 2px solid $register_button_primary;
     color: $register_button_primary;
+  }
+}
+.buttons_container li {
+  display: inline;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  list-style-type: none;
+}
+
+.contact_container {
+  margin-top: 20vh;
+  color: $primary_color;
+
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+  background: $login_container_background;
+  box-shadow: 3px 3px 6px #000000;
+  border-radius: 2%;
+  padding: 2rem 2.5rem 2rem 2.5rem;
+}
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .contact_header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .contact_input {
+    color: white;
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid $primary_color;
+    padding-top: 15px;
+    width: 25rem;
+    flex-grow: 1;
+  }
+
+  .contact_message_input {
+    color: white;
+    resize: vertical;
+    margin-top: 10px;
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid $primary_color;
+    width: 25rem;
+    height: 10rem;
+  }
+
+  .contact_button {
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid $primary_color;
+    color: $primary_color;
+
+    &:hover,
+    &:focus {
+      background-color: $primary_color;
+      border: 2px solid $login_button_primary;
+      color: $login_button_primary;
+    }
   }
 }

@@ -1,36 +1,30 @@
+import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import TextInput, { TextArea } from "./TextInput.js";
-
-
-const formSchema = Yup.object().shape({
-  title: Yup.string().email().required(),
-  author: Yup.string().required(),
-  content: Yup.string().required(),
-
-  email: Yup.string().email().required("Please Enter a Valid Email"),
-  first_name: Yup.string().required("Enter your first name"),
-  last_name: Yup.string().required("Enter your last name"),
-  password: Yup.string().required().min(8).max(12),
-  confirm_password: Yup.string().oneOf(
-    [Yup.ref("password"), null],
-    "Passwords must match"
-  ),
-});
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const ContactForm = () => {
+  const formSchema = Yup.object().shape({
+    title: Yup.string().required(),
+    content: Yup.string().required(),
+    email: Yup.string().email().required("Please Enter a Valid Email"),
+  });
   return (
-    <div className="contact_container page">
+    <div className="contact_container">
       <h1 className={"contact_header"}>Contact Us!</h1>
 
       <Formik
         initialValues={{
           title: "",
-          author: "",
+          email: "",
           content: "",
         }}
         validationSchema={formSchema}
-        onSubmit={(data) => console.log(data)}
+        onSubmit={(values) => {
+          alert(JSON.stringify(values, null, 2));
+          console.log("pressed");
+        }}
       >
         {({ handleSubmit }) => {
           return (
@@ -42,8 +36,8 @@ const ContactForm = () => {
               />
               <TextInput
                 className="contact_input"
-                name={"author"}
-                placeholder={"Author..."}
+                name={"email"}
+                placeholder={"Email..."}
               />
 
               <TextArea
@@ -63,6 +57,16 @@ const ContactForm = () => {
 };
 
 const RegisterForm = () => {
+  const formSchema = Yup.object().shape({
+    email: Yup.string().email().required("Please Enter a Valid Email"),
+    first_name: Yup.string().required("Enter your first name"),
+    last_name: Yup.string().required("Enter your last name"),
+    password: Yup.string().required().min(8).max(12),
+    confirm_password: Yup.string().oneOf(
+      [Yup.ref("password"), null],
+      "Passwords must match"
+    ),
+  });
   return (
     <div className="form_container">
       <h1 className={"form_header"}>register now</h1>
@@ -76,15 +80,14 @@ const RegisterForm = () => {
           confirm_password: "",
         }}
         validationSchema={formSchema}
-        onSubmit={(data) => console.log(data)}
+        onSubmit={(values) => {
+          alert(JSON.stringify(values, null, 2));
+          console.log("pressed");
+        }}
       >
         {({ handleSubmit }) => {
           return (
             <form onSubmit={handleSubmit} className="user_form">
-              <p className="close_button">
-                X
-              </p>
-
               <TextInput
                 className="text_input"
                 name={"email"}
@@ -112,9 +115,27 @@ const RegisterForm = () => {
                 name={"confirm_password"}
                 placeholder={"Confirm Your Password..."}
               />
-              <button className="register_button" type={"submit"}>
-                Register
-              </button>
+              <ul className="buttons_container">
+                <li className="form_button">
+                  <button
+                    className="register_button"
+                    type={"submit"}
+                    tabIndex="0"
+                  >
+                    Register
+                  </button>
+                </li>
+                <li className="form_button">
+                  <Link
+                    className="login_button"
+                    type={"button"}
+                    tabIndex="0"
+                    to="login"
+                  >
+                    Have an account?
+                  </Link>
+                </li>
+              </ul>
             </form>
           );
         }}
@@ -124,14 +145,24 @@ const RegisterForm = () => {
 };
 
 const LoginForm = () => {
+  const formSchema = Yup.object().shape({
+    email: Yup.string().email().required("Please Enter a Valid Email"),
+    password: Yup.string().required().min(8).max(12),
+  });
+
   return (
     <div className="form_container">
-      <h1 className={"form_header"}>login now</h1>
+      <h1 className={"form_header"} tabIndex="0" aria-label="Login Title">
+        login now
+      </h1>
 
       <Formik
         initialValues={{ email: "", password: "" }}
         validationSchema={formSchema}
-        onSubmit={(data) => console.log(data)}
+        onSubmit={(values) => {
+          alert(JSON.stringify(values, null, 2));
+          console.log("pressed");
+        }}
       >
         {({ handleSubmit }) => {
           return (
@@ -148,9 +179,23 @@ const LoginForm = () => {
                 name={"password"}
                 placeholder={"Password..."}
               />
-              <button className="login_button" type={"submit"}>
-                Login
-              </button>
+              <ul className="buttons_container">
+                <li className="form_button">
+                  <button className="login_button" type={"submit"} tabIndex="0">
+                    Login
+                  </button>
+                </li>
+                <li className="form_button">
+                  <Link
+                    className="register_button"
+                    type={"button"}
+                    tabIndex="0"
+                    to="register"
+                  >
+                    Need an account?
+                  </Link>
+                </li>
+              </ul>
             </form>
           );
         }}
@@ -159,10 +204,4 @@ const LoginForm = () => {
   );
 };
 
-const blank = () => {
-  return <div className="blank" >
-  </div>;
-};
-
-export default blank;
 export { ContactForm, LoginForm, RegisterForm };

@@ -1,12 +1,10 @@
 import React from "react";
 import { ContactForm } from "../components/Forms";
-import Navbar from "../components/Navbar";
 
 const Contact = () => {
   
   return (
-    <div className="">
-      <Navbar />
+    <div className="form_page_container">
       <div className="page">
         <ContactForm />
       </div>

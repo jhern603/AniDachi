@@ -2,20 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  width: 100%;
-
   background: white;
   padding: 15px 25px 25px 15px;
 }
+
 .navbar_item {
   display: inline;
 }
 
 .navbar_text {
   text-decoration: none;
-
-  display: inline;
   margin-right: 15px;
   color: black;
   &:hover {
@@ -43,8 +39,9 @@
   border: 2px solid white;
   border-radius: 3px;
   color: white;
-
-  &:hover {
+  text-decoration: none;
+  &:hover, &:focus {
+    outline: none;
     background-color: white;
     border: 2px solid#ff7e33;
     color: #ff7e33;
