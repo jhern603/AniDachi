@@ -36,6 +36,10 @@
       border-bottom: 1.5px solid $primary_color;
       padding: 5px 10rem 5px 5px;
       flex-grow: 1;
+
+      &:focus {
+        border-bottom: 1.5px solid $focus_color;
+      }
     }
 
     .input_field {
@@ -114,6 +118,9 @@
       padding-top: 15px;
       width: 25rem;
       flex-grow: 1;
+            &:focus {
+        border-bottom: 1.5px solid $focus_color;
+      }
     }
 
     .contact_message_input {
@@ -125,6 +132,9 @@
       border-bottom: 1.5px solid $primary_color;
       width: 25rem;
       height: 10rem;
+            &:focus {
+        border-bottom: 1.5px solid $focus_color;
+      }
     }
 
     .contact_button {

@@ -1,8 +1,13 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   font-family: Helvetica;
   font-size: 20px;
+}
+
+*:focus {
+  outline: none;
 }
 
 body {
@@ -15,7 +20,34 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
-button:focus {
+input:focus::-webkit-input-placeholder {
+  color: #ffbb93;
+}
+
+/* Firefox < 19 */
+input:focus:-moz-placeholder {
+  color: #ffbb93;
+}
+
+/* Firefox > 19 */
+input:focus::-moz-placeholder {
+  color: #ffbb93;
+}
+
+/* Internet Explorer 10 */
+input:focus:-ms-input-placeholder {
+  color: #ffbb93;
+}
+
+:focus::-webkit-input-placeholder {
+  color: #ffbb93;
+}
+
+:focus:-moz-placeholder {
+  color: #ffbb93;
+}
+
+​ button:focus {
   outline: none;
 }
 
@@ -36,7 +68,7 @@ button:focus {
   margin-right: 15px;
   color: black;
 }
-.navbar_text:hover {
+.navbar_text:hover, .navbar_text:focus {
   cursor: pointer;
   color: #ff7e33;
 }
@@ -47,7 +79,7 @@ button:focus {
   font-weight: bold;
   color: black;
 }
-.navbar_title:hover {
+.navbar_title:hover, .navbar_title:focus {
   cursor: pointer;
   color: #ff7e33;
 }
@@ -105,6 +137,9 @@ button:focus {
   border-bottom: 1.5px solid white;
   padding: 5px 10rem 5px 5px;
   flex-grow: 1;
+}
+.form_container .user_form .text_input:focus {
+  border-bottom: 1.5px solid #ffbb93;
 }
 .form_container .user_form .input_field {
   margin-top: 4px;
@@ -175,6 +210,9 @@ button:focus {
   width: 25rem;
   flex-grow: 1;
 }
+.contact_container .contact_form .contact_input:focus {
+  border-bottom: 1.5px solid #ffbb93;
+}
 .contact_container .contact_form .contact_message_input {
   color: white;
   resize: vertical;
@@ -184,6 +222,9 @@ button:focus {
   border-bottom: 1.5px solid white;
   width: 25rem;
   height: 10rem;
+}
+.contact_container .contact_form .contact_message_input:focus {
+  border-bottom: 1.5px solid #ffbb93;
 }
 .contact_container .contact_form .contact_button {
   cursor: pointer;

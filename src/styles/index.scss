@@ -4,7 +4,7 @@ $login_container_background: rgba(
   $color: #a3a3a3,
   $alpha: 0.5,
 );
-$close_button: rgb(0, 255, 64);
+$focus_color:  #ffbb93;
 $primary_color: white;
 $shadow_color: black;
 $error_color: red;
@@ -15,6 +15,9 @@ $navbar_hover: #ff7e33;
   padding: 0;
   font-family: Helvetica;
   font-size: 20px;
+}
+*:focus {
+  outline: none;
 }
 
 body {
@@ -27,7 +30,28 @@ body {
   color: rgba($color: $primary_color, $alpha: 0.6);
 }
 
-button:focus{
+input:focus::-webkit-input-placeholder {
+  color:$focus_color;
+}
+
+/* Firefox < 19 */
+input:focus:-moz-placeholder {
+  color:$focus_color;
+}
+
+/* Firefox > 19 */
+input:focus::-moz-placeholder {
+  color:$focus_color;
+}
+
+/* Internet Explorer 10 */
+input:focus:-ms-input-placeholder {
+  color:$focus_color;
+}
+
+:focus::-webkit-input-placeholder { color:$focus_color; }
+:focus:-moz-placeholder { color:$focus_color; }​
+button:focus {
   outline: none;
 }
 @import "./navbar";
