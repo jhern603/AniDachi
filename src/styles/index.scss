@@ -1,12 +1,14 @@
 $register_button_primary: #4133ff;
 $login_button_primary: #ff7e33;
-$login_button_primary: #ff7e33;
 $login_container_background: rgba(
   $color: #a3a3a3,
   $alpha: 0.5,
 );
 $close_button: rgb(0, 255, 64);
 $primary_color: white;
+$shadow_color: black;
+$error_color: red;
+$navbar_hover: #ff7e33;
 
 * {
   margin: 0;
@@ -14,24 +16,18 @@ $primary_color: white;
   font-family: Helvetica;
   font-size: 20px;
 }
-.blank {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-}
+
 body {
   background-color: black;
   background-image: url("https://wallpaperaccess.com/full/38598.jpg");
   background-repeat: no-repeat;
 }
 
-
 ::placeholder {
-  color: rgba($color: white, $alpha: 0.6);
+  color: rgba($color: $primary_color, $alpha: 0.6);
 }
 
-button:focus,
-input:focus {
+button:focus{
   outline: none;
 }
 @import "./navbar";

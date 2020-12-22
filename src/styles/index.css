@@ -5,12 +5,6 @@
   font-size: 20px;
 }
 
-.blank {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-}
-
 body {
   background-color: black;
   background-image: url("https://wallpaperaccess.com/full/38598.jpg");
@@ -21,8 +15,7 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
-button:focus,
-input:focus {
+button:focus {
   outline: none;
 }
 
@@ -76,36 +69,12 @@ input:focus {
   color: #ff7e33;
 }
 
-.register {
-  transition: all 0.3s ease;
-  cursor: pointer;
-  padding: 10px 20px;
-  background: #4133ff;
-  border: 2px solid white;
-  border-radius: 3px;
-  color: white;
-}
-.register:hover {
-  background-color: white;
-  border: 2px solid #4133ff;
-  color: #4133ff;
-}
-
-.transparent_text {
-  opacity: 0;
-}
-
 .error {
   text-transform: capitalize;
   color: red;
   font-weight: bold;
   opacity: 1;
   margin-top: 2px;
-}
-
-.inactive_container {
-  transition: all 0.5s ease;
-  opacity: 0;
 }
 
 .form_container {
@@ -115,7 +84,7 @@ input:focus {
   opacity: 1;
   backdrop-filter: blur(2px);
   background: rgba(163, 163, 163, 0.5);
-  box-shadow: 3px 3px 6px #000000;
+  box-shadow: 3px 3px 6px black;
   border-radius: 2%;
   padding: 2rem 2.5rem 2rem 2.5rem;
 }
@@ -124,37 +93,23 @@ input:focus {
   padding-bottom: 15px;
   text-align: center;
 }
-.form_container .close_button {
-  position: absolute;
-  left: 22.5rem;
-  top: 1rem;
-  height: 0;
-  width: 200px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.form_container .close_button:hover {
-  color: #00ff40;
-}
-
-.user_form {
+.form_container .user_form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.user_form .text_input {
+.form_container .user_form .text_input {
   background: none;
   border: none;
   border-bottom: 1.5px solid white;
   padding: 5px 10rem 5px 5px;
   flex-grow: 1;
 }
-.user_form .input_field {
+.form_container .user_form .input_field {
   margin-top: 4px;
 }
-
-.login_button {
+.form_container .login_button {
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.3s ease;
@@ -164,13 +119,12 @@ input:focus {
   color: white;
   text-decoration: none;
 }
-.login_button:hover, .login_button:focus {
+.form_container .login_button:hover, .form_container .login_button:focus {
   background-color: white;
   border: 2px solid #ff7e33;
   color: #ff7e33;
 }
-
-.register_button {
+.form_container .register_button {
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.3s ease;
@@ -180,14 +134,13 @@ input:focus {
   color: white;
   text-decoration: none;
 }
-.register_button:hover, .register_button:focus {
+.form_container .register_button:hover, .form_container .register_button:focus {
   background-color: white;
   border: 2px solid #4133ff;
   color: #4133ff;
 }
-
-.buttons_container li {
-  display: inline;
+.form_container .buttons_container li {
+  display: inline-block;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   list-style-type: none;
@@ -199,22 +152,21 @@ input:focus {
   transition: all 0.3s ease;
   backdrop-filter: blur(2px);
   background: rgba(163, 163, 163, 0.5);
-  box-shadow: 3px 3px 6px #000000;
+  box-shadow: 3px 3px 6px black;
   border-radius: 2%;
   padding: 2rem 2.5rem 2rem 2.5rem;
 }
-
-.contact_form {
+.contact_container .contact_form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.contact_form .contact_header {
+.contact_container .contact_form .contact_header {
   text-align: center;
   margin-bottom: 1rem;
 }
-.contact_form .contact_input {
+.contact_container .contact_form .contact_input {
   color: white;
   background: none;
   border: none;
@@ -223,7 +175,7 @@ input:focus {
   width: 25rem;
   flex-grow: 1;
 }
-.contact_form .contact_message_input {
+.contact_container .contact_form .contact_message_input {
   color: white;
   resize: vertical;
   margin-top: 10px;
@@ -233,7 +185,7 @@ input:focus {
   width: 25rem;
   height: 10rem;
 }
-.contact_form .contact_button {
+.contact_container .contact_form .contact_button {
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.3s ease;
@@ -242,7 +194,7 @@ input:focus {
   border: 2px solid white;
   color: white;
 }
-.contact_form .contact_button:hover, .contact_form .contact_button:focus {
+.contact_container .contact_form .contact_button:hover, .contact_container .contact_form .contact_button:focus {
   background-color: white;
   border: 2px solid #ff7e33;
   color: #ff7e33;

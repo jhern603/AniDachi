@@ -1,8 +1,8 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import TextInput, { TextArea } from "./TextInput.js";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { TextInput, TextArea } from "./TextInput.js";
+import { Link } from "react-router-dom";
 
 const ContactForm = () => {
   const formSchema = Yup.object().shape({
@@ -70,7 +70,6 @@ const RegisterForm = () => {
   return (
     <div className="form_container">
       <h1 className={"form_header"}>register now</h1>
-
       <Formik
         initialValues={{
           email: "",

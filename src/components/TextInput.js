@@ -7,11 +7,11 @@ const TextInput = (props) => {
     <div className={"input_field"}>
       {props.label && <label htmlFor={props.name}>{props.label}</label>}
       {/* <span>{props.name}</span> */}
-      <input {...field} {...props} />
+      <input {...field} {...props} aria-label={props.label} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : (
-        <div className="transparent_text">This is the Hialeah workaround</div>
+        <div style={{ "margin-top": "25px" }}></div>
       )}
     </div>
   );
@@ -22,14 +22,13 @@ const TextArea = (props) => {
     <div className={"input_textarea"}>
       {props.label && <label htmlFor={props.name}>{props.label}</label>}
       {/* <span>{props.name}</span> */}
-      <textarea {...field} {...props} />
+      <textarea {...field} {...props} aria-label={props.label} />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : (
-        <div className="transparent_text">This is the Hialeah workaround</div>
+        <div style={{ "margin-top": "25px" }}></div>
       )}
     </div>
   );
 };
-export default TextInput;
-export { TextArea };
+export { TextInput, TextArea };
