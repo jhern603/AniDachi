@@ -28,7 +28,7 @@ export const FormContainer = styled.div`
   backdrop-filter: blur(0.3rem);
   background: ${theme_color.modal_background};
   box-shadow: 0.3rem 0.3rem 0.4rem $black;
-  border-radius: 2%;
+  border-radius: 0.5rem;
   padding: 2rem 2.5rem 2rem 2.5rem;
 `;
 export const ListItem = styled.li`

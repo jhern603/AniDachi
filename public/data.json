@@ -1,0 +1,13 @@
+[{
+  "id": 1,
+  "title": "My first post",
+  "author": "Jose Hernandez",
+  "content": "Message content"
+},
+{
+  "id": 2,
+  "title": "My second post",
+  "author": "Hose Jernandez",
+  "content": "Message content 2"
+}
+]
