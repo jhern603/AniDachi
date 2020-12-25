@@ -7,7 +7,7 @@ export const ViewPosts = () => {
       <div>
         <PostContainer>
           <FormArea>
-            <Posts></Posts>
+            <Posts>
               <Post>
                 <PostHeader>Post Title</PostHeader>
                 <PostAuthor>Posted by: Author</PostAuthor>
