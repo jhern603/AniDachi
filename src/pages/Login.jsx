@@ -1,14 +1,13 @@
 import React from "react";
-import { RegisterForm } from "components/Forms";
+import { LoginForm } from "components/Forms";
 
-const Login = () => {
+export const Login = () => {
 
   return (
     <div className="form_page_container">
       <div className="form_page">
-        <RegisterForm />
+        <LoginForm />
       </div>
     </div>
   );
 };
-export default Login;

@@ -1,7 +1,7 @@
 import React from "react";
 import { ContactForm } from "components/Forms";
 
-const Contact = () => {
+export const Contact = () => {
   
   return (
     <div className="form_page_container">
@@ -11,4 +11,3 @@ const Contact = () => {
     </div>
   );
 }
-export default Contact;

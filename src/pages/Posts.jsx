@@ -1,9 +1,9 @@
 import React from "react";
-import Sidebar from "components/Sidebar";
+import { Sidebar } from "components/Sidebar";
 import { useRouteMatch, Route } from "react-router-dom";
 import { NewPost } from "components/Forms";
 
-const Posts = () => {
+export const Posts = () => {
   const { url, path } = useRouteMatch();
   return (
     <div>
@@ -17,5 +17,3 @@ const Posts = () => {
     </div>
   );
 };
-
-export default Posts;

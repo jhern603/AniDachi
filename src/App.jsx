@@ -1,18 +1,7 @@
-import "styles/index.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import About from "pages/About";
-import Index from "pages/Index";
-import Contact from "pages/Contact";
-import Login from "pages/Login";
-import Register from "pages/Register";
-import { Navbar } from "components/Navbar";
-import Posts from "pages/Posts";
-// Nested routes
-
+import 'styles/index.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Home, Register, About, Contact, Posts, Login } from 'pages';
+import { Navbar } from 'components/Navbar';
 const App = () => {
   return (
     <div>
@@ -32,7 +21,7 @@ const App = () => {
             <Posts />
           </Route>
           <Route exact path="/">
-            <Index />
+            <Home />
           </Route>
           <Route component="/login">
             <Login />
@@ -41,5 +30,6 @@ const App = () => {
       </Router>
     </div>
   );
-}
+};
 export default App;
+

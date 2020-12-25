@@ -52,7 +52,6 @@ export const Navbar = () => {
     </Nav>
   );
 };
-
 //Component Styles
 const Nav = styled.header`
   display: flex;

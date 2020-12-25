@@ -1,12 +1,6 @@
-import React from "react";
-
-const Index = () => {
-  return (
-    <div className="page_container">
-      <div className="page">
-        <h1>Index</h1>
-      </div>
-    </div>
-  );
-};
-export default Index;
+export { Home } from '../pages/Home';
+export { Register } from '../pages/Register';
+export { About } from '../pages/About';
+export { Contact } from '../pages/Contact';
+export { Posts } from '../pages/Posts';
+export { Login } from '../pages/Login';
