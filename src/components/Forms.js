@@ -1,18 +1,21 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { TextInput, TextArea } from "./TextInput.js";
+import { TextInput, TextArea } from "./TextInput";
 import { Link } from "react-router-dom";
+import * as theme_color from "styles/variables";
+import styled from "styled-components";
 
-const ContactForm = () => {
+// Exported Components
+export const ContactForm = () => {
   const formSchema = Yup.object().shape({
     title: Yup.string().required(),
     content: Yup.string().required(),
     email: Yup.string().email().required("Please Enter a Valid Email"),
   });
   return (
-    <div className="contact_container">
-      <h1 className={"contact_header"}>Contact Us!</h1>
+    <FormContainer>
+      <FormHeader>Contact Us!</FormHeader>
 
       <Formik
         initialValues={{
@@ -28,35 +31,26 @@ const ContactForm = () => {
       >
         {({ handleSubmit }) => {
           return (
-            <form onSubmit={handleSubmit} className="contact_form">
-              <TextInput
-                className="contact_input"
-                name={"title"}
-                placeholder={"Title..."}
-              />
-              <TextInput
-                className="contact_input"
-                name={"email"}
-                placeholder={"Email..."}
-              />
+            <FormArea onSubmit={handleSubmit}>
+              <TextInput name={"title"} placeholder={"Title..."} />
+              <TextInput name={"email"} placeholder={"Email..."} />
 
               <TextArea
-                className="contact_message_input"
+                className="textarea_input"
                 name={"content"}
                 placeholder={"Content..."}
               />
-              <button className="contact_button" type={"submit"}>
+              <button className="login_button" type={"submit"}>
                 Send Message
               </button>
-            </form>
+            </FormArea>
           );
         }}
       </Formik>
-    </div>
+    </FormContainer>
   );
 };
-
-const RegisterForm = () => {
+export const RegisterForm = () => {
   const formSchema = Yup.object().shape({
     email: Yup.string().email().required("Please Enter a Valid Email"),
     first_name: Yup.string().required("Enter your first name"),
@@ -68,8 +62,8 @@ const RegisterForm = () => {
     ),
   });
   return (
-    <div className="form_container">
-      <h1 className={"form_header"}>register now</h1>
+    <FormContainer>
+      <FormHeader>register now</FormHeader>
       <Formik
         initialValues={{
           email: "",
@@ -86,7 +80,7 @@ const RegisterForm = () => {
       >
         {({ handleSubmit }) => {
           return (
-            <form onSubmit={handleSubmit} className="user_form">
+            <FormArea onSubmit={handleSubmit}>
               <TextInput
                 className="text_input"
                 name={"email"}
@@ -114,8 +108,8 @@ const RegisterForm = () => {
                 name={"confirm_password"}
                 placeholder={"Confirm Your Password..."}
               />
-              <ul className="buttons_container">
-                <li className="form_button">
+              <ul>
+                <ListItem>
                   <button
                     className="register_button"
                     type={"submit"}
@@ -123,8 +117,8 @@ const RegisterForm = () => {
                   >
                     Register
                   </button>
-                </li>
-                <li className="form_button">
+                </ListItem>
+                <ListItem>
                   <Link
                     className="login_button"
                     type={"button"}
@@ -133,27 +127,24 @@ const RegisterForm = () => {
                   >
                     Have an account?
                   </Link>
-                </li>
+                </ListItem>
               </ul>
-            </form>
+            </FormArea>
           );
         }}
       </Formik>
-    </div>
+    </FormContainer>
   );
 };
-
-const LoginForm = () => {
+export const LoginForm = () => {
   const formSchema = Yup.object().shape({
     email: Yup.string().email().required("Please Enter a Valid Email"),
     password: Yup.string().required().min(8).max(12),
   });
 
   return (
-    <div className="form_container">
-      <h1 className={"form_header"} tabIndex="0" aria-label="Login Title">
-        login now
-      </h1>
+    <FormContainer>
+      <FormHeader>login now</FormHeader>
 
       <Formik
         initialValues={{ email: "", password: "" }}
@@ -165,7 +156,7 @@ const LoginForm = () => {
       >
         {({ handleSubmit }) => {
           return (
-            <form onSubmit={handleSubmit} className="user_form">
+            <FormArea onSubmit={handleSubmit}>
               <TextInput
                 className="text_input"
                 name={"email"}
@@ -178,13 +169,13 @@ const LoginForm = () => {
                 name={"password"}
                 placeholder={"Password..."}
               />
-              <ul className="buttons_container">
-                <li className="form_button">
+              <ul>
+                <ListItem>
                   <button className="login_button" type={"submit"} tabIndex="0">
                     Login
                   </button>
-                </li>
-                <li className="form_button">
+                </ListItem>
+                <ListItem>
                   <Link
                     className="register_button"
                     type={"button"}
@@ -193,14 +184,84 @@ const LoginForm = () => {
                   >
                     Need an account?
                   </Link>
-                </li>
+                </ListItem>
               </ul>
-            </form>
+            </FormArea>
           );
         }}
       </Formik>
-    </div>
+    </FormContainer>
+  );
+};
+export const NewPost = () => {
+  const formSchema = Yup.object().shape({
+    title: Yup.string().required("Please Enter a title for your post!"),
+    content: Yup.string().required(),
+  });
+
+  return (
+    <FormContainer>
+      <FormHeader>create a new post</FormHeader>
+
+      <Formik
+        initialValues={{ title: "", author: "", content: "" }}
+        validationSchema={formSchema}
+        onSubmit={(values) => {
+          alert(JSON.stringify(values, null, 2));
+          console.log("pressed");
+        }}
+      >
+        {({ handleSubmit }) => {
+          return (
+            <FormArea onSubmit={handleSubmit}>
+              <TextInput
+                className="text_input"
+                name={"title"}
+                placeholder={"Enter a title for your post!"}
+              />
+              <TextArea
+                className="textarea_input"
+                name={"content"}
+                placeholder={"Content..."}
+              />
+
+              <button className="login_button" type={"submit"} tabIndex="0">
+                Create Post
+              </button>
+            </FormArea>
+          );
+        }}
+      </Formik>
+    </FormContainer>
   );
 };
 
-export { ContactForm, LoginForm, RegisterForm };
+// Component Styles
+const FormArea = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const FormHeader = styled.h1`
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+  text-align: center;
+`;
+const FormContainer = styled.div`
+  margin-top: 20vh;
+  color: ${theme_color.primary_color};
+  border: 0.1rem solid rgba(255, 255, 255, 0.18);
+  opacity: 1;
+  backdrop-filter: blur(0.3rem);
+  background: ${theme_color.modal_background};
+  box-shadow: 0.3rem 0.3rem 0.4rem $black;
+  border-radius: 2%;
+  padding: 2rem 2.5rem 2rem 2.5rem;
+`;
+const ListItem = styled.li`
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  list-style-type: none;
+`;

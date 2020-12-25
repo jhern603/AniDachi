@@ -1,34 +1,63 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import * as theme_color from "styles/variables"
 
-const Navbar = () => {
+//Exported Component
+export const Navbar = () => {
   return (
-    <header className="navbar">
-      <Link to="/" className="navbar_title" tabIndex="0">
+    <Nav>
+      <NavLink exact to="/" className="navbar_title" tabIndex="0">
         Jose Hernandez
-      </Link>
+      </NavLink>
 
       <ul className="navbar_links">
-        <li className="navbar_item">
-          <Link to="/about" className="navbar_text" tabIndex="0">
+        <li style={{display:'inline'}}>
+          <NavLink
+            to="/about"
+            activeClassName="navbar_active"
+            className="navbar_text"
+            tabIndex="0"
+          >
             About
-          </Link>
+          </NavLink>
         </li>
-
-        <li className="navbar_item">
-          <Link to="/contact" className="navbar_text" tabIndex="0">
+        <li style={{display:'inline'}}>
+          <NavLink
+            to="/posts"
+            activeClassName="navbar_active"
+            className="navbar_text"
+            tabIndex="0"
+          >
+            Posts
+          </NavLink>
+        </li>
+        <li style={{display:'inline'}}>
+          <NavLink
+            to="/contact"
+            activeClassName="navbar_active"
+            className="navbar_text"
+            tabIndex="0"
+          >
             Contact
-          </Link>
+          </NavLink>
         </li>
 
-        <li className="navbar_item">
-          <Link to="/login" className="login" tabIndex="0">
+        <li style={{display:'inline'}}>
+          <NavLink to="/login" className="login" tabIndex="0">
             Login
-          </Link>
+          </NavLink>
         </li>
       </ul>
-    </header>
+    </Nav>
   );
 };
-export default Navbar;
 
+//Component Styles
+const Nav = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: ${theme_color.primary_color};
+  padding: 1rem 1.5rem 1.5rem 1rem;
+`;

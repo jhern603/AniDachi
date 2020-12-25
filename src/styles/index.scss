@@ -1,29 +1,24 @@
 $register_button_primary: #4133ff;
 $login_button_primary: #ff7e33;
-$login_container_background: rgba(
-  $color: #a3a3a3,
-  $alpha: 0.5,
-);
-$focus_color:  #ffbb93;
+$login_container_background: rgba( 255, 255, 255, 0.25 );
+$focus_color: #ffbb93;
 $primary_color: white;
-$shadow_color: black;
+$black: #2b2b2b;
 $error_color: red;
-$navbar_hover: #ff7e33;
 
 * {
   margin: 0;
   padding: 0;
   font-family: Helvetica;
   font-size: 20px;
+  transition: all 0.3s linear;
 }
 *:focus {
   outline: none;
 }
 
 body {
-  background-color: black;
-  background-image: url("https://wallpaperaccess.com/full/38598.jpg");
-  background-repeat: no-repeat;
+  background: url("https://wallpaperaccess.com/full/38598.jpg") no-repeat;
 }
 
 ::placeholder {
@@ -31,29 +26,34 @@ body {
 }
 
 input:focus::-webkit-input-placeholder {
-  color:$focus_color;
+  color: $focus_color;
 }
 
 /* Firefox < 19 */
 input:focus:-moz-placeholder {
-  color:$focus_color;
+  color: $focus_color;
 }
 
 /* Firefox > 19 */
 input:focus::-moz-placeholder {
-  color:$focus_color;
+  color: $focus_color;
 }
 
 /* Internet Explorer 10 */
 input:focus:-ms-input-placeholder {
-  color:$focus_color;
+  color: $focus_color;
 }
 
-:focus::-webkit-input-placeholder { color:$focus_color; }
-:focus:-moz-placeholder { color:$focus_color; }​
-button:focus {
+:focus::-webkit-input-placeholder {
+  color: $focus_color;
+}
+:focus:-moz-placeholder {
+  color: $focus_color;
+}
+​ button:focus {
   outline: none;
 }
 @import "./navbar";
 @import "./formStyle";
 @import "./page";
+@import "./Sidebar";
