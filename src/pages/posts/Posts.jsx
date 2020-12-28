@@ -16,9 +16,7 @@ export const Posts = () => {
             <NewPost />
           </div>
         </Route>
-        <Route path={`${path}/:posts`}>
-          <ViewPosts />
-        </Route>
+        <Route path={`${path}/:posts`} component={ViewPosts} />
       </Switch>
     </div>
   );

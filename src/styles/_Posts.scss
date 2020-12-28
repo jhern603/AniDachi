@@ -1,0 +1,19 @@
+.posts {
+  max-height: 75vh;
+  list-style: none;
+  overflow-y: scroll;
+  min-width: 68vw;
+}
+.post {
+  margin-bottom: 3rem;
+}
+
+.post_header {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+
+.post_author {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
