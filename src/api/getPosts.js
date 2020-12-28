@@ -28,9 +28,9 @@ export const displayPosts = () => {
 
         //Creates and adds the author to the list item
         let post_author = document.createElement('h2');
-        const author = document.createTextNode(item.author);
+        const author = document.createTextNode("Written by: "+item.author);
         post_author.appendChild(author);
-        post_header.setAttribute('class', 'post_author');
+        post_author.setAttribute('class', 'post_author');
         post_item.appendChild(post_author);
 
         //Creates and adds the author to the list item
