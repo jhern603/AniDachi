@@ -1,16 +1,19 @@
 import { FormArea, FormContainer } from 'components/Forms';
-import React from 'react';
+import React, { Suspense } from 'react';
 import styled from 'styled-components';
-import { displayPosts } from 'api/getPosts';
+import { DisplayPosts } from 'api/getPosts';
+
 
 export const ViewPosts = () => {
-  displayPosts();
+
   return (
     <div className="page_container">
       <div>
         <PostContainer>
           <FormArea>
-            <Posts id="posts_area"></Posts>
+            <Posts id="posts_area">
+              <DisplayPosts />
+            </Posts>
           </FormArea>
         </PostContainer>
       </div>
