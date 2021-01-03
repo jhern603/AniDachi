@@ -3,7 +3,6 @@ import React, { Suspense } from 'react';
 import styled from 'styled-components';
 import { focus_color } from 'styles/variables';
 //Learning Note: Apparently using a promise (in this case an axios.get) breaks the set method for useState
-//BUG: New posts don't load when you go back to View Posts after making a new post
 let posts = null;
 let completed = false;
 let awaiting = null;
@@ -55,14 +54,7 @@ const FetchPosts = () => {
   }
 };
 
-export const sendPost = (post) => {
-  axios
-    .post(API, post)
-    .then(alert('Your post has been submitted!'))
-    .catch((e) => console.error(e));
-  window.location.reload();
-};
-//BUG: client side CORS issue in preflight?
+
 const deletePost = (post) => {
   let r = window.confirm('Are you sure you would like to delete this post?');
 
@@ -72,6 +64,14 @@ const deletePost = (post) => {
       .then(alert('This post has been deleted.'))
       .catch((e) => console.error(e));
   }
+};
+
+export const sendPost = (post) => {
+  axios
+    .post(API, post)
+    .then(alert('Your post has been submitted!'))
+    .catch((e) => console.error(e));
+  window.location.reload();
 };
 
 //Additional Components
