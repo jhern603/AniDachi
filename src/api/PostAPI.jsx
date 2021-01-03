@@ -2,8 +2,11 @@ import axios from 'axios';
 import React, { Suspense } from 'react';
 import styled from 'styled-components';
 import { focus_color } from 'styles/variables';
+import { NavLink } from 'react-router-dom';
 //Learning Note: Apparently using a promise (in this case an axios.get) breaks the set method for useState
-let posts = null;
+export let posts = null;
+export let post = null;
+
 let completed = false;
 let awaiting = null;
 let API = 'http://localhost:5000/api/posts';
@@ -29,20 +32,27 @@ const FetchPosts = () => {
       return (
         <Post>
           {posts.data.map((item) => {
+            post = item;
             return (
               <Post key={item.id}>
                 <PostHeader>{item.title}</PostHeader>
                 <PostAuthor>{item.author}</PostAuthor>
                 <p>{item.content}</p>
-                <button type="submit" onClick={(e) => deletePost(e, item)}>
+                <button
+                  className="delete_button"
+                  type="submit"
+                  onClick={(e) => deletePost(e, item)}
+                >
                   Delete
                 </button>
+                <NavLink className="edit_button" to={`edit/${item.id}`}>
+                  Edit
+                </NavLink>
               </Post>
             );
           })}
         </Post>
       );
-
     } else {
       return (
         <Post>
@@ -52,7 +62,6 @@ const FetchPosts = () => {
     }
   }
 };
-
 
 const deletePost = (e, post) => {
   e.preventDefault();
@@ -74,6 +83,8 @@ export const sendPost = (post) => {
     .catch((e) => console.error(e));
   window.location.reload();
 };
+
+export const editPost = (post) => {};
 
 //Additional Components
 const Loader = () => {

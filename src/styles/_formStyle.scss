@@ -1,6 +1,6 @@
 .error {
   text-transform: capitalize;
-  color: $error_color;
+  color: $failure;
   font-weight: bold;
   opacity: 1;
   margin-top: 0.1rem;
@@ -10,16 +10,16 @@
   cursor: pointer;
   margin-top: 1rem;
   padding: 0.7rem 0.9rem;
-  background: transparent;
-  border: 0.1rem solid $primary_color;
-  color: $primary_color;
+  background: $button_background;
+  border: 0.1rem solid $success;
+  color: $success;
   text-decoration: none;
 
   &:hover,
   &:focus {
-    background-color: $primary_color;
-    border: 0.1rem solid$login_button_primary;
-    color: $login_button_primary;
+    background-color: $success;
+    border: 0.1rem solid $button_background;
+    color: $button_background;
   }
 }
 
@@ -27,7 +27,7 @@
   cursor: pointer;
   margin-top: 1rem;
   padding: 0.7rem 0.9rem;
-  background: transparent;
+  background: $button_background;
   border: 0.1rem solid $primary_color;
   color: $primary_color;
   text-decoration: none;
@@ -38,4 +38,39 @@
     color: $register_button_primary;
   }
 
+}
+
+.delete_button{
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.7rem 0.9rem;
+  background: $primary_color;
+  border: 0.1rem solid $failure;
+  color: $failure;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: $failure;
+    border: 0.1rem solid $primary_color;
+    color: $primary_color;
+  }
+}
+
+.edit_button{
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 0.7rem 0.9rem;
+  background: $primary_color;
+  border: 0.1rem solid $warning;
+  color: $warning;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: $warning;
+    border: 0.1rem solid $primary_color;
+    color: $primary_color;
+  }
 }

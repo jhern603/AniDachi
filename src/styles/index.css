@@ -20,30 +20,30 @@ body {
 }
 
 input:focus::-webkit-input-placeholder {
-  color: #ffbb93;
+  color: #c99249;
 }
 
 /* Firefox < 19 */
 input:focus:-moz-placeholder {
-  color: #ffbb93;
+  color: #c99249;
 }
 
 /* Firefox > 19 */
 input:focus::-moz-placeholder {
-  color: #ffbb93;
+  color: #c99249;
 }
 
 /* Internet Explorer 10 */
 input:focus:-ms-input-placeholder {
-  color: #ffbb93;
+  color: #c99249;
 }
 
 :focus::-webkit-input-placeholder {
-  color: #ffbb93;
+  color: #c99249;
 }
 
 :focus:-moz-placeholder {
-  color: #ffbb93;
+  color: #c99249;
 }
 
 ​ button:focus {
@@ -57,13 +57,13 @@ input:focus:-ms-input-placeholder {
 }
 .navbar_text:hover, .navbar_text:focus {
   cursor: pointer;
-  color: #ffbb93;
+  color: #c99249;
 }
 
 .navbar_active {
   transition: none;
   padding-bottom: 1.45rem;
-  border-bottom: 0.2rem solid #ffbb93;
+  border-bottom: 0.2rem solid #c99249;
 }
 
 .navbar_title {
@@ -74,7 +74,7 @@ input:focus:-ms-input-placeholder {
 }
 .navbar_title:hover, .navbar_title:focus {
   cursor: pointer;
-  color: #ffbb93;
+  color: #c99249;
 }
 
 .login {
@@ -95,7 +95,7 @@ input:focus:-ms-input-placeholder {
 
 .error {
   text-transform: capitalize;
-  color: red;
+  color: #FE6D73;
   font-weight: bold;
   opacity: 1;
   margin-top: 0.1rem;
@@ -105,22 +105,22 @@ input:focus:-ms-input-placeholder {
   cursor: pointer;
   margin-top: 1rem;
   padding: 0.7rem 0.9rem;
-  background: transparent;
-  border: 0.1rem solid white;
-  color: white;
+  background: white;
+  border: 0.1rem solid #17C3B2;
+  color: #17C3B2;
   text-decoration: none;
 }
 .login_button:hover, .login_button:focus {
-  background-color: white;
-  border: 0.1rem solid #ff7e33;
-  color: #ff7e33;
+  background-color: #17C3B2;
+  border: 0.1rem solid white;
+  color: white;
 }
 
 .register_button {
   cursor: pointer;
   margin-top: 1rem;
   padding: 0.7rem 0.9rem;
-  background: transparent;
+  background: white;
   border: 0.1rem solid white;
   color: white;
   text-decoration: none;
@@ -129,6 +129,37 @@ input:focus:-ms-input-placeholder {
   background-color: white;
   border: 0.1rem solid #4133ff;
   color: #4133ff;
+}
+
+.delete_button {
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.7rem 0.9rem;
+  background: white;
+  border: 0.1rem solid #FE6D73;
+  color: #FE6D73;
+  text-decoration: none;
+}
+.delete_button:hover, .delete_button:focus {
+  background-color: #FE6D73;
+  border: 0.1rem solid white;
+  color: white;
+}
+
+.edit_button {
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 0.7rem 0.9rem;
+  background: white;
+  border: 0.1rem solid #FFC277;
+  color: #FFC277;
+  text-decoration: none;
+}
+.edit_button:hover, .edit_button:focus {
+  background-color: #FFC277;
+  border: 0.1rem solid white;
+  color: white;
 }
 
 .page_container {
@@ -168,7 +199,7 @@ input:focus:-ms-input-placeholder {
 }
 .sidebar .sidebar_item:hover,
 .sidebar .sidebar_item a:hover {
-  color: #ffbb93;
+  color: #c99249;
   cursor: pointer;
 }
 .sidebar .sidebar_item:first-child {
@@ -178,7 +209,7 @@ input:focus:-ms-input-placeholder {
 .sidebar_active {
   transition: none;
   padding-bottom: 0.2rem;
-  border-bottom: 0.2rem solid #ffbb93;
+  border-bottom: 0.2rem solid #c99249;
 }
 
 /*# sourceMappingURL=index.css.map */

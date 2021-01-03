@@ -44,7 +44,7 @@ export const Navbar = () => {
         </li>
 
         <li style={{display:'inline'}}>
-          <NavLink to="/login" className="login" tabIndex="0">
+          <NavLink to="/login" className="login_button" tabIndex="0">
             Login
           </NavLink>
         </li>
