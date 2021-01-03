@@ -26,7 +26,6 @@ const FetchPosts = () => {
     throw awaiting;
   } else {
     if (posts.data !== null && posts.data.length > 0) {
-      console.log(posts.data)
       return (
         <Post>
           {posts.data.map((item) => {
@@ -55,7 +54,8 @@ const FetchPosts = () => {
 };
 
 
-const deletePost = (post) => {
+const deletePost = (e, post) => {
+  e.preventDefault();
   let r = window.confirm('Are you sure you would like to delete this post?');
 
   if (r === true) {
@@ -63,6 +63,7 @@ const deletePost = (post) => {
       .delete(`http://localhost:5000/api/posts/${post.id}`)
       .then(alert('This post has been deleted.'))
       .catch((e) => console.error(e));
+    window.location.reload();
   }
 };
 
