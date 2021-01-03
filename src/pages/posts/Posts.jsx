@@ -4,7 +4,6 @@ import { useRouteMatch, Route, Switch } from 'react-router-dom';
 import { NewPost } from 'components/Forms';
 import { ViewPosts } from './ViewPosts';
 
-
 export const Posts = () => {
   const { url, path } = useRouteMatch();
   return (
@@ -16,9 +15,9 @@ export const Posts = () => {
             <NewPost />
           </div>
         </Route>
-        < Route path={`${path}/:posts`}>
-          <ViewPosts />  
-        </ Route>
+        <Route path={`${path}/:posts`}>
+          <ViewPosts />
+        </Route>
       </Switch>
     </div>
   );

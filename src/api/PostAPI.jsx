@@ -1,15 +1,17 @@
 import axios from 'axios';
 import React, { Suspense } from 'react';
 import styled from 'styled-components';
-import {focus_color} from 'styles/variables';
+import { focus_color } from 'styles/variables';
 //Learning Note: Apparently using a promise (in this case an axios.get) breaks the set method for useState
+//BUG: New posts don't load when you go back to View Posts after making a new post
 let posts = null;
 let completed = false;
 let awaiting = null;
-const FetchPosts = () => {
-  let API = 'http://localhost:5000/api/posts';
+let API = 'http://localhost:5000/api/posts';
 
-  if (awaiting == null) {
+//API Call functions
+const FetchPosts = () => {
+  if (awaiting === null) {
     let getRequest = axios
       .get(API)
       .then((res) => {
@@ -19,29 +21,68 @@ const FetchPosts = () => {
       .catch((e) => {
         console.log(e);
       });
-
     awaiting = getRequest;
-
     throw getRequest;
   } else if (!completed) {
     throw awaiting;
   } else {
-    return (
-      <Post>
-        {posts.data.map((item) => {
-          return (
-            <Post key={item.id}>
-              <PostHeader>{item.title}</PostHeader>
-              <PostAuthor>{item.author}</PostAuthor>
-              <p>{item.content}</p>
-            </Post>
-          );
-        })}
-      </Post>
-    );
+    if (posts.data !== null && posts.data.length > 0) {
+      console.log(posts.data)
+      return (
+        <Post>
+          {posts.data.map((item) => {
+            return (
+              <Post key={item.id}>
+                <PostHeader>{item.title}</PostHeader>
+                <PostAuthor>{item.author}</PostAuthor>
+                <p>{item.content}</p>
+                <button type="submit" onClick={(e) => deletePost(e, item)}>
+                  Delete
+                </button>
+              </Post>
+            );
+          })}
+        </Post>
+      );
+
+    } else {
+      return (
+        <Post>
+          <PostHeader>There are no posts!</PostHeader>
+        </Post>
+      );
+    }
   }
 };
 
+export const sendPost = (post) => {
+  axios
+    .post(API, post)
+    .then(alert('Your post has been submitted!'))
+    .catch((e) => console.error(e));
+  window.location.reload();
+};
+//BUG: client side CORS issue in preflight?
+const deletePost = (post) => {
+  let r = window.confirm('Are you sure you would like to delete this post?');
+
+  if (r === true) {
+    axios
+      .delete(`http://localhost:5000/api/posts/${post.id}`)
+      .then(alert('This post has been deleted.'))
+      .catch((e) => console.error(e));
+  }
+};
+
+//Additional Components
+const Loader = () => {
+  return (
+    <>
+      <Loading />
+    </>
+  );
+};
+//This function actualy displays the posts resolved from FetchPosts()
 export const DisplayPosts = () => {
   return (
     <Suspense fallback={<Loader />}>
@@ -50,16 +91,7 @@ export const DisplayPosts = () => {
   );
 };
 
-const Loader = () => {
-  return (
-    <>
-      <Loading/>
-    </>
-  );
-};
-
 //Styled Components
-
 const Post = styled.div`
   margin-bottom: 3rem;
 `;
@@ -75,20 +107,20 @@ const PostAuthor = styled.h2`
 `;
 
 const Loading = styled.div`
-    color: ${focus_color};
-    font-size: 90px;
-    text-indent: -9999em;
-    overflow: hidden;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    margin: 72px auto;
-    position: relative;
-    -webkit-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
-    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  color: ${focus_color};
+  font-size: 90px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin: 72px auto;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
   @-webkit-keyframes load6 {
     0% {
       box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,

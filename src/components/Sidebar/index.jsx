@@ -1,19 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Sidebar = ({ url }) => {
   return (
     <div>
       <div className="sidebar">
         <div className="sidebar_item">
-          <Link  to={`${url}/new`}>
+          <NavLink to={`${url}/new`} activeClassName="sidebar_active">
             Make New Post
-          </Link>
+          </NavLink>
         </div>
         <div className="sidebar_item">
-          <Link  to={`${url}/view`}>
+          <NavLink to={`${url}/view`} activeClassName="sidebar_active">
             View Posts
-          </Link>
+          </NavLink>
         </div>
         <div className="sidebar_item">Some Other Stuff</div>
       </div>

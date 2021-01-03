@@ -3,7 +3,8 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { TextInput, TextArea } from 'components/Textinput';
 import { FormArea, FormHeader, FormContainer } from '../Forms';
-//TODO: Form submission event
+import { sendPost } from 'api/PostAPI';
+
 export const NewPost = () => {
   const formSchema = Yup.object().shape({
     title: Yup.string().required('Please Enter a title for your post!'),
@@ -13,20 +14,12 @@ export const NewPost = () => {
   return (
     <FormContainer>
       <FormHeader>create a new post</FormHeader>
-
       <Formik
         initialValues={{ title: '', author: '', content: '' }}
         validationSchema={formSchema}
-        onSubmit={(values, {resetForm}) => {
-          var request = new XMLHttpRequest();
-          request.open('POST', '/api/posts');
-          request.setRequestHeader(
-            'Content-Type',
-            'application/json'
-          );
-          request.send(JSON.stringify(values, null, 2));
-          resetForm({})
-          alert("Your post has been submitted!")
+        onSubmit={(values, { resetForm }) => {
+          sendPost(JSON.stringify(values));
+          resetForm({});
         }}
       >
         {({ handleSubmit }) => {
@@ -40,7 +33,7 @@ export const NewPost = () => {
               <TextInput
                 className="text_input"
                 name={'author'}
-                placeholder={'Enter a title for your post!'}
+                placeholder={'Enter your pen name'}
               />
               <TextArea
                 className="textarea_input"

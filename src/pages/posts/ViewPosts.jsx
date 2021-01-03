@@ -1,7 +1,7 @@
 import { FormArea, FormContainer } from 'components/Forms';
 import React from 'react';
 import styled from 'styled-components';
-import { DisplayPosts } from 'api/getPosts';
+import { DisplayPosts } from 'api/PostAPI';
 
 
 export const ViewPosts = () => {

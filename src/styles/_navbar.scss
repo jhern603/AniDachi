@@ -11,6 +11,7 @@
 }
 
 .navbar_active {
+  transition: none;
   padding-bottom: 1.45rem;
   border-bottom: 0.2rem solid $focus_color;
 }
