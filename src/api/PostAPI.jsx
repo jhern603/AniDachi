@@ -72,8 +72,8 @@ const deletePost = (e, post) => {
       .delete(`http://localhost:5000/api/posts/${post.id}`)
       .then(alert('This post has been deleted.'))
       .catch((e) => console.error(e));
-    window.location.reload();
   }
+  window.location.reload();
 };
 
 export const sendPost = (post) => {
@@ -84,7 +84,12 @@ export const sendPost = (post) => {
   window.location.reload();
 };
 
-export const editPost = (post) => {};
+export const editPost = (id,post) => {
+  axios
+    .put(`http://localhost:5000/api/posts/${id}`, post)
+    .then(alert('The post has been updated!'))
+    .catch((e) => console.error(e));
+};
 
 //Additional Components
 const Loader = () => {

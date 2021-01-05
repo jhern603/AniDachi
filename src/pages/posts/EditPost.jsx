@@ -6,18 +6,13 @@ import { Formik } from 'formik';
 import { post } from 'api/PostAPI';
 import { Redirect } from 'react-router-dom';
 import { editPost } from 'api/PostAPI'
-/**
- *Changelog:
- * Began work on EditPost
- * Changed colors of site
- * Added Edit button
- * Styled Delete button
- * Redirect to view posts if posts === null in editPosts
- */
+
 //BUG: Delete post stopped working
+
+
 export const EditPost = () => {
   if (post === null) {
-    return <Redirect to="/:posts/view" />
+    return <Redirect to="/posts/view" />
   }
 
   const formSchema = Yup.object().shape({
@@ -35,9 +30,9 @@ export const EditPost = () => {
           author: post.author,
           content: post.content,
         }}
-        onSubmit={(values, { resetForm }) => {
-          editPost(JSON.stringify(values));
-          //Need to redirect on submit
+        onSubmit={(values) => {
+          editPost(post.id, JSON.stringify(values));
+          window.location.reload();
         }}
         validationSchema={formSchema}
       >
@@ -61,7 +56,7 @@ export const EditPost = () => {
               />
 
               <button className="login_button" type={'submit'} tabIndex="0">
-                Create Post
+                Edit Post
               </button>
             </FormArea>
           );

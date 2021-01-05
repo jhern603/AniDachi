@@ -21,7 +21,9 @@ export const Posts = () => {
           <ViewPosts />
         </Route>
         <Route path={`${path}/edit/`}>
-          <EditPost />
+          <div className="form_page_container">
+            <EditPost />
+          </div>
         </Route>
       </Switch>
     </div>
