@@ -42,9 +42,6 @@ const FetchPosts = () => {
                 >
                   Delete
                 </button>
-                <button className="delete_button" type="submit">
-                  test
-                </button>
                 <NavLink
                   className="edit_button"
                   to={`edit/${item.id}`}
@@ -129,7 +126,7 @@ const PostAuthor = styled.h2`
   margin-bottom: 1rem;
 `;
 
-const Loading = styled.div`
+export const Loading = styled.div`
   color: ${focus_color};
   font-size: 90px;
   text-indent: -9999em;

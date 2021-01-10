@@ -7,6 +7,7 @@ import { Redirect } from 'react-router-dom';
 import { editPost, post } from 'api/PostAPI';
 
 //BUG: If there is a colon in the post, the JSON confuses it for the next object
+//BUG: The post variable won't update correctly, causing the second instance of editing a post to make the previous post blank
 
 export const EditPost = () => {
   if (post === null) {

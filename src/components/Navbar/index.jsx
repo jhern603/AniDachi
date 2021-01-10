@@ -1,10 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import * as theme_color from "styles/variables"
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import * as theme_color from 'styles/variables';
+import { useAuth0 } from '@auth0/auth0-react';
 
 //Exported Component
 export const Navbar = () => {
+  const { isAuthenticated } = useAuth0();
   return (
     <Nav>
       <NavLink exact to="/" className="navbar_title" tabIndex="0">
@@ -12,7 +14,7 @@ export const Navbar = () => {
       </NavLink>
 
       <ul className="navbar_links">
-        <li style={{display:'inline'}}>
+        <li style={{ display: 'inline' }}>
           <NavLink
             to="/about"
             activeClassName="navbar_active"
@@ -22,7 +24,7 @@ export const Navbar = () => {
             About
           </NavLink>
         </li>
-        <li style={{display:'inline'}}>
+        <li style={{ display: 'inline' }}>
           <NavLink
             to="/posts"
             activeClassName="navbar_active"
@@ -32,7 +34,7 @@ export const Navbar = () => {
             Posts
           </NavLink>
         </li>
-        <li style={{display:'inline'}}>
+        <li style={{ display: 'inline' }}>
           <NavLink
             to="/contact"
             activeClassName="navbar_active"
@@ -43,15 +45,46 @@ export const Navbar = () => {
           </NavLink>
         </li>
 
-        <li style={{display:'inline'}}>
-          <NavLink to="/login" className="login_button" tabIndex="0">
-            Login
-          </NavLink>
+        <li style={{ display: 'inline' }}>
+          {isAuthenticated ? <LogoutButton /> : <LoginButton />}
         </li>
       </ul>
     </Nav>
   );
 };
+
+const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
+
+  return (
+    <button
+      className="login_button"
+      onClick={(e) => {
+        e.preventDefault();
+        loginWithRedirect();
+      }}
+    >
+      Login
+    </button>
+  );
+};
+
+const LogoutButton = () => {
+  const { logout } = useAuth0();
+
+  return (
+    <button
+      className="login_button"
+      onClick={(e) => {
+        e.preventDefault();
+        logout();
+      }}
+    >
+      Log Out
+    </button>
+  );
+};
+
 //Component Styles
 const Nav = styled.header`
   display: flex;
