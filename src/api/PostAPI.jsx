@@ -5,12 +5,10 @@ import { focus_color } from 'styles/variables';
 import { NavLink } from 'react-router-dom';
 //Learning Note: Apparently using a promise (in this case an axios.get) breaks the set method for useState
 export let posts = null;
-export let post = null;
-
 let completed = false;
 let awaiting = null;
 let API = 'http://localhost:5000/api/posts';
-
+export let post = null;
 //API Call functions
 const FetchPosts = () => {
   if (awaiting === null) {
@@ -32,7 +30,6 @@ const FetchPosts = () => {
       return (
         <Post>
           {posts.data.map((item) => {
-            post = item;
             return (
               <Post key={item.id}>
                 <PostHeader>{item.title}</PostHeader>
@@ -45,7 +42,16 @@ const FetchPosts = () => {
                 >
                   Delete
                 </button>
-                <NavLink className="edit_button" to={`edit/${item.id}`}>
+                <button className="delete_button" type="submit">
+                  test
+                </button>
+                <NavLink
+                  className="edit_button"
+                  to={`edit/${item.id}`}
+                  onClick={(e) => {
+                    post = item;
+                  }}
+                >
                   Edit
                 </NavLink>
               </Post>
@@ -84,7 +90,7 @@ export const sendPost = (post) => {
   window.location.reload();
 };
 
-export const editPost = (id,post) => {
+export const editPost = (id, post) => {
   axios
     .put(`http://localhost:5000/api/posts/${id}`, post)
     .then(alert('The post has been updated!'))

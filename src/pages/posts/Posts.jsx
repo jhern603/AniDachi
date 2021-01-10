@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Sidebar } from 'components/Sidebar';
 import { useRouteMatch, Route, Switch, Redirect } from 'react-router-dom';
 import { NewPost } from 'components/Forms';
@@ -8,7 +8,7 @@ import { EditPost } from './EditPost';
 export const Posts = () => {
   const { url, path } = useRouteMatch();
   return (
-    <div>
+    <>
       <Redirect to={`${path}/view`} />
       <Sidebar url={url} />
       <Switch>
@@ -26,6 +26,6 @@ export const Posts = () => {
           </div>
         </Route>
       </Switch>
-    </div>
+    </>
   );
 };

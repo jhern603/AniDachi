@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { DisplayPosts } from 'api/PostAPI';
 
 
-export const ViewPosts = () => {
+export const ViewPosts = ({ post, setPost }) => {
 
   return (
     <div className="page_container">

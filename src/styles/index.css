@@ -121,14 +121,14 @@ input:focus:-ms-input-placeholder {
   margin-top: 1rem;
   padding: 0.7rem 0.9rem;
   background: white;
-  border: 0.1rem solid white;
-  color: white;
+  border: 0.1rem solid #4133ff;
+  color: #4133ff;
   text-decoration: none;
 }
 .register_button:hover, .register_button:focus {
-  background-color: white;
-  border: 0.1rem solid #4133ff;
-  color: #4133ff;
+  background-color: #4133ff;
+  border: 0.1rem solid white;
+  color: white;
 }
 
 .delete_button {

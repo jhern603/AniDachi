@@ -3,24 +3,20 @@ import { TextInput, TextArea } from 'components/Textinput';
 import { FormArea, FormHeader, FormContainer } from 'components/Forms';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { post } from 'api/PostAPI';
 import { Redirect } from 'react-router-dom';
-import { editPost } from 'api/PostAPI'
+import { editPost, post } from 'api/PostAPI';
 
-//BUG: Delete post stopped working
-
+//BUG: If there is a colon in the post, the JSON confuses it for the next object
 
 export const EditPost = () => {
   if (post === null) {
-    return <Redirect to="/posts/view" />
+    return <Redirect to="/posts/view" />;
   }
-
   const formSchema = Yup.object().shape({
     title: Yup.string().required(),
     author: Yup.string().required(),
     content: Yup.string().required(),
   });
-
   return (
     <FormContainer>
       <FormHeader>Edit post</FormHeader>

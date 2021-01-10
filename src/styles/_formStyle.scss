@@ -28,14 +28,14 @@
   margin-top: 1rem;
   padding: 0.7rem 0.9rem;
   background: $button_background;
-  border: 0.1rem solid $primary_color;
-  color: $primary_color;
+  border: 0.1rem solid $register_button_primary;
+  color: $register_button_primary;
   text-decoration: none;
   &:hover,
   &:focus {
-    background-color: $primary_color;
-    border: 0.1rem solid $register_button_primary;
-    color: $register_button_primary;
+    background-color: $register_button_primary;
+    border: 0.1rem solid $primary_color;
+    color: $primary_color;
   }
 
 }
