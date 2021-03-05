@@ -94,6 +94,9 @@ export const editPost = (id, post) => {
     .catch((e) => console.error(e));
 };
 
+//BUG: the edit bug has returned ._.
+
+
 //Additional Components
 const Loader = () => {
   return (
@@ -102,7 +105,7 @@ const Loader = () => {
     </>
   );
 };
-//This function actualy displays the posts resolved from FetchPosts()
+//This function actually displays the posts resolved from FetchPosts()
 export const DisplayPosts = () => {
   return (
     <Suspense fallback={<Loader />}>

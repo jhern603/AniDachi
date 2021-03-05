@@ -24,16 +24,21 @@ export const Navbar = () => {
             About
           </NavLink>
         </li>
-        <li style={{ display: 'inline' }}>
-          <NavLink
-            to="/posts"
-            activeClassName="navbar_active"
-            className="navbar_text"
-            tabIndex="0"
-          >
-            Posts
-          </NavLink>
-        </li>
+        {isAuthenticated ? (
+          <li style={{ display: 'inline' }}>
+            <NavLink
+              to="/posts"
+              activeClassName="navbar_active"
+              className="navbar_text"
+              tabIndex="0"
+            >
+              Posts
+            </NavLink>
+          </li>
+        ) : (
+          ''
+        )}
+
         <li style={{ display: 'inline' }}>
           <NavLink
             to="/contact"
